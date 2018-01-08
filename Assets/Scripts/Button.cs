@@ -6,6 +6,8 @@ public class Button : MonoBehaviour {
 
     public Animator anim;
 
+    public Transform Fire;
+
     public enum ButtonState
     {
         pushed = 0,
@@ -30,6 +32,7 @@ public class Button : MonoBehaviour {
         {
             state = ButtonState.pushed;
             anim.SetInteger("buttonState", (int)state);
+            BurnWall();
         }
     }
 
@@ -40,5 +43,13 @@ public class Button : MonoBehaviour {
             state = ButtonState.notpushed;
             anim.SetInteger("buttonState", (int)state);
         }
-    }   
+    }
+
+    void BurnWall()
+    {
+        for (int i = 0; i < 12; i++)
+        {
+            Instantiate(Fire, new Vector3(0.56f, 2.06f, -2.98f+1.31f*i), Quaternion.Euler(-90, 0, 0));
+        }
+    }
 }
