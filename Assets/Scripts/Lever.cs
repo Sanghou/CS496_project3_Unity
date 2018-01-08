@@ -4,8 +4,13 @@ using UnityEngine;
 
 public class Lever : MonoBehaviour {
 
-	// Use this for initialization
-	void Start () {
+    public Animator anim;
+    public KeyCode push;
+
+    public bool pushed;
+
+    // Use this for initialization
+    void Start () {
 		
 	}
 	
@@ -13,4 +18,27 @@ public class Lever : MonoBehaviour {
 	void Update () {
 		
 	}
+
+    private void OnTriggerEnter(Collider other)
+    {
+        
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (Input.GetKey(push))
+        {
+            Debug.Log("pushing");
+            //pushed = !pushed;
+            anim.SetBool("lever_pushed", true);
+        } else
+        {
+            anim.SetBool("lever_pushed", false);
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        anim.SetBool("lever_pushed", false);
+    }
 }
