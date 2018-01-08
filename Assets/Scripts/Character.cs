@@ -25,8 +25,6 @@ public class Character : MonoBehaviour {
     public KeyCode pileBlock;
 
     private Rigidbody theRB;
-    public Transform groundCheckPoint;
-    public float groundCheckRadius;
     public LayerMask whatIsGround;
 
     public bool isGrounded;
@@ -34,6 +32,9 @@ public class Character : MonoBehaviour {
     // Use this for initialization
     void Start() {
         theRB = GetComponent<Rigidbody>();
+
+        whatIsGround = 1 << LayerMask.NameToLayer("Ground");
+        state = playerState.normal;
     }
 
     // Update is called once per frame
@@ -41,41 +42,48 @@ public class Character : MonoBehaviour {
     {
         float xSpeed=0, zSpeed=0;
 
-        isGrounded = Physics.Raycast(transform.position, new Vector3(0, -1), 0.5f);
-        state = playerState.normal;
+        bool jumpKeyDown = false;
 
         if (Input.GetKey(leftKey)) {
             xSpeed = -moveSpeed;
-            state = playerState.run;
         } else if (Input.GetKey(rightKey)){
             xSpeed = moveSpeed;
-            state = playerState.run;
         }
 
-        if (Input.GetKey(frontKey))
-        {
+        if (Input.GetKey(frontKey)){
             zSpeed = -moveSpeed;
-            state = playerState.run;
         }
-        else if (Input.GetKey(backKey))
-        {
+        else if (Input.GetKey(backKey)){
             zSpeed = moveSpeed;
-            state = playerState.run;
         }
-
 
         if (Input.GetKeyDown(jump) && isGrounded)
         {
             theRB.velocity = new Vector3(xSpeed, jumpForce, zSpeed);
+            jumpKeyDown = true;
         }
         else
         {
             theRB.velocity = new Vector3(xSpeed, theRB.velocity.y, zSpeed);
         }
 
-        if (theRB.velocity.y != 0)
-            state = playerState.jump;
 
+        isGrounded = Physics.Raycast(transform.position, new Vector3(0, -1), 1f, whatIsGround);
+        if (isGrounded)
+        {
+            if (theRB.velocity.x == 0 && theRB.velocity.z == 0)
+                state = playerState.normal;
+            else
+                state = playerState.run;
+
+            if (jumpKeyDown)
+                state = playerState.jump;
+        }
+        else
+        {
+            state = playerState.jump;
+        }
+       
         if (anim != null)
         {
             anim.SetInteger("playerState", (int)state);
