@@ -1,12 +1,18 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2017
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CS496_P3_2.5D", "CS496_P3_2.5D.csproj", "{CCD84E38-7D97-C3E7-E5B6-6680A83731EC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{CCD84E38-7D97-C3E7-E5B6-6680A83731EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CCD84E38-7D97-C3E7-E5B6-6680A83731EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CCD84E38-7D97-C3E7-E5B6-6680A83731EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CCD84E38-7D97-C3E7-E5B6-6680A83731EC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
