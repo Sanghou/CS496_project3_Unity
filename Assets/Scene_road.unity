@@ -2201,8 +2201,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c65a59f758fbae4cbbad939b6d03439, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  state: 1
 --- !u!111 &660812283
 Animation:
   m_ObjectHideFlags: 0
@@ -3308,6 +3306,7 @@ GameObject:
   - component: {fileID: 1235507468}
   - component: {fileID: 1235507472}
   - component: {fileID: 1235507471}
+  - component: {fileID: 1235507473}
   m_Layer: 5
   m_Name: Character
   m_TagString: Player
@@ -3326,20 +3325,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 27288a703f2f79545a63ee10a3757c81, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  anim: {fileID: 0}
-  state: 0
-  moveSpeed: 10
-  jumpForce: 10
-  leftKey: 0
-  rightKey: 0
-  frontKey: 0
-  backKey: 0
-  jump: 273
-  pileBlock: 0
-  whatIsGround:
-    serializedVersion: 2
-    m_Bits: 256
-  isGrounded: 0
 --- !u!212 &1235507469
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3424,6 +3409,31 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 112
   m_CollisionDetection: 0
+--- !u!114 &1235507473
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1235507467}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2262df996ac06c0409a39959bef01ddd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  anim: {fileID: 0}
+  state: 0
+  moveSpeed: 5
+  jumpForce: 1
+  leftKey: 276
+  rightKey: 275
+  frontKey: 274
+  backKey: 273
+  jump: 32
+  pileBlock: 0
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 0
+  isGrounded: 0
 --- !u!1001 &1261963048
 Prefab:
   m_ObjectHideFlags: 0
@@ -4097,10 +4107,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d19743706ab3044c9ddb166bf6ff61b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 1235507467}
-  bounds: 0
-  minCameraPos: {x: 0, y: 0, z: 0}
-  maxCameraPos: {x: 0, y: 0, z: 0}
 --- !u!1001 &1546626401
 Prefab:
   m_ObjectHideFlags: 0
