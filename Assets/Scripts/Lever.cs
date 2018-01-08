@@ -6,7 +6,6 @@ public class Lever : MonoBehaviour {
 
     public Animator anim;
     public KeyCode push;
-
     public bool pushed;
 
     // Use this for initialization
@@ -29,16 +28,18 @@ public class Lever : MonoBehaviour {
         if (Input.GetKey(push))
         {
             Debug.Log("pushing");
-            //pushed = !pushed;
-            anim.SetBool("lever_pushed", true);
+            pushed = true;
+            
         } else
         {
-            anim.SetBool("lever_pushed", false);
+            pushed = false;
         }
+        anim.SetBool("lever_pushed", pushed);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        anim.SetBool("lever_pushed", false);
+        pushed = false;
+        anim.SetBool("lever_pushed", pushed);
     }
 }
