@@ -22,18 +22,23 @@ public class Character : MonoBehaviour {
     public KeyCode frontKey;
     public KeyCode backKey;
     public KeyCode jump;
-    public KeyCode pileBlock;
+    public KeyCode pickup;
 
     private Rigidbody theRB;
     public LayerMask whatIsGround;
+    public float groundCheckRadius;
 
     public bool isGrounded;
 
-    // Use this for initialization
+    public GameObject currentItem = null;
+    public Item currentItemScript = null;
+    public Inventory inventory;
+    public bool isthereItem = false;
+    
     void Start() {
         theRB = GetComponent<Rigidbody>();
 
-        whatIsGround = 1 << LayerMask.NameToLayer("Ground");
+        //whatIsGround = 1 << LayerMask.NameToLayer("Ground");
         state = playerState.normal;
     }
 
@@ -68,7 +73,7 @@ public class Character : MonoBehaviour {
         }
 
 
-        isGrounded = Physics.Raycast(transform.position, new Vector3(0, -1), 1f, whatIsGround);
+        isGrounded = Physics.Raycast(transform.position, new Vector3(0, -1), groundCheckRadius, whatIsGround);
         if (isGrounded)
         {
             if (theRB.velocity.x == 0 && theRB.velocity.z == 0)
@@ -87,6 +92,46 @@ public class Character : MonoBehaviour {
         if (anim != null)
         {
             anim.SetInteger("playerState", (int)state);
+        }
+
+        if (Input.GetKeyDown(pickup) && currentItem && !isthereItem)
+        {
+            if (currentItemScript.inventory)
+            {
+                inventory.AddItem(currentItem);
+                isthereItem = true;
+                currentItem.SendMessage("DoInteraction");
+            }
+        }
+        else if (Input.GetKeyDown(pickup) && isthereItem)
+        {
+            currentItem.transform.position = GameObject.Find("Player2").transform.position;
+            currentItem.SetActive(true);
+            inventory.UseItem(currentItem);
+            isthereItem = false;
+
+        }
+    }
+
+    private void OnTriggerEnter(Collider item)
+    {
+        //print(other.tag);
+        if (item.CompareTag("item"))
+        {
+            currentItem = item.gameObject;
+            currentItemScript = currentItem.GetComponent<Item>();
+        }
+
+    }
+
+    private void OnTriggerExit(Collider item)
+    {
+        if (item.CompareTag("item"))
+        {
+            if (item.gameObject == currentItem)
+            {
+                currentItem = null;
+            }
         }
     }
 }
