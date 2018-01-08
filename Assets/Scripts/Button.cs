@@ -1,14 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Button : MonoBehaviour {
 
     public Animator anim;
 
-    public GameObject Fire;
-
-    List<GameObject> fireList = new List<GameObject>();
+    public UnityEvent collisionEvent;
+    public UnityEvent collisionExitEvent;
 
     public enum ButtonState
     {
@@ -34,7 +34,7 @@ public class Button : MonoBehaviour {
         {
             state = ButtonState.pushed;
             anim.SetInteger("buttonState", (int)state);
-            BurnWall();
+            collisionEvent.Invoke();
         }
     }
 
@@ -44,28 +44,7 @@ public class Button : MonoBehaviour {
         {
             state = ButtonState.notpushed;
             anim.SetInteger("buttonState", (int)state);
-            ExtinguishFire();
+            collisionExitEvent.Invoke();
         }
     }
-
-    void BurnWall()
-    {
-        for (int i = 0; i < 12; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                fireList.Add(Instantiate(Fire, new Vector3(0.56f, 2.06f, -2.98f + 1.31f * i), Quaternion.Euler(-90, 0, 0)));
-            }
-        }
-    }
-
-    void ExtinguishFire()
-    {
-        while(fireList.Count != 0)
-        {
-            Destroy(fireList[0]);
-            fireList.RemoveAt(0);
-        }
-    }
-
 }
