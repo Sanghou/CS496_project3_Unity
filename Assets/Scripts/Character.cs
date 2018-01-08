@@ -26,6 +26,7 @@ public class Character : MonoBehaviour {
 
     private Rigidbody theRB;
     public LayerMask whatIsGround;
+    public float groundCheckRadius;
 
     public bool isGrounded;
 
@@ -68,7 +69,7 @@ public class Character : MonoBehaviour {
         }
 
 
-        isGrounded = Physics.Raycast(transform.position, new Vector3(0, -1), 1f, whatIsGround);
+        isGrounded = Physics.Raycast(transform.position, new Vector3(0, -1), groundCheckRadius, whatIsGround);
         if (isGrounded)
         {
             if (theRB.velocity.x == 0 && theRB.velocity.z == 0)

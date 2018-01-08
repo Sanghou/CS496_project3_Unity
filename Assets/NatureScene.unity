@@ -3278,6 +3278,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
+  groundCheckRadius: 1
   isGrounded: 0
 --- !u!95 &2102019858
 Animator:

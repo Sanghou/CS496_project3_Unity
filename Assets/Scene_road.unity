@@ -3423,7 +3423,7 @@ MonoBehaviour:
   anim: {fileID: 0}
   state: 0
   moveSpeed: 5
-  jumpForce: 1
+  jumpForce: 10
   leftKey: 276
   rightKey: 275
   frontKey: 274
@@ -3433,6 +3433,7 @@ MonoBehaviour:
   whatIsGround:
     serializedVersion: 2
     m_Bits: 0
+  groundCheckRadius: 3
   isGrounded: 0
 --- !u!1001 &1261963048
 Prefab:
