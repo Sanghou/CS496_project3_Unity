@@ -7,6 +7,8 @@ TagManager:
   - Player1
   - player2
   - item
+  - button_sphere
+  - button_pushed_by_sphere
   layers:
   - Default
   - TransparentFX

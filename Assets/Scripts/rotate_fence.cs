@@ -17,21 +17,27 @@ public class rotate_fence : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        if (Input.GetKey(KeyCode.Mouse0))
+        //mouse_down();
+        if (rotated > 0)
         {
-            if (rotated < 110)
-            {
-                transform.Rotate(Vector3.right * Time.deltaTime * 20);
-                rotated += Time.deltaTime * 20;
-            }
+            rotated -= Time.deltaTime * 20;
+            transform.Rotate(-Vector3.right * Time.deltaTime * 20);
         }
+    }
 
-        else { 
-            if(rotated > 0)
-            {
-                transform.Rotate(- Vector3.right * Time.deltaTime * 20);
-                rotated -= Time.deltaTime * 20;
-            }
+
+    public void button_down()
+    {
+        if (rotated < 110)
+        {
+            Debug.Log("110 under");
+            rotated += Time.deltaTime * 40;
+            transform.Rotate(Vector3.right * Time.deltaTime * 40);
         }
+    }
+
+    public void return_fence()
+    {
+        
     }
 }
