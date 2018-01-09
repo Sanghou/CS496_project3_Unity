@@ -1091,6 +1091,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+  clickAudio: {fileID: 0}
   state: 1
 --- !u!64 &543361112
 MeshCollider:
@@ -2029,6 +2030,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2262df996ac06c0409a39959bef01ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRight: 0
   anim: {fileID: 0}
   state: 0
   moveSpeed: 5
@@ -2048,6 +2050,7 @@ MonoBehaviour:
   currentItemScript: {fileID: 0}
   inventory: {fileID: 1342267906}
   isthereItem: 0
+  jumpAudio: {fileID: 0}
 --- !u!54 &1342267901
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2147,7 +2150,7 @@ MonoBehaviour:
   inventory:
   - {fileID: 0}
   items:
-  - {fileID: 836274689}
+  - {fileID: 0}
 --- !u!1001 &1421512893
 Prefab:
   m_ObjectHideFlags: 0
@@ -2503,6 +2506,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2262df996ac06c0409a39959bef01ddd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isRight: 0
   anim: {fileID: 0}
   state: 0
   moveSpeed: 5
@@ -2522,6 +2526,7 @@ MonoBehaviour:
   currentItemScript: {fileID: 0}
   inventory: {fileID: 1571222895}
   isthereItem: 0
+  jumpAudio: {fileID: 0}
 --- !u!65 &1571222891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2621,7 +2626,7 @@ MonoBehaviour:
   inventory:
   - {fileID: 0}
   items:
-  - {fileID: 1037001980}
+  - {fileID: 0}
 --- !u!1 &1587350086
 GameObject:
   m_ObjectHideFlags: 0

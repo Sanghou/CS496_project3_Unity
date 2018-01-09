@@ -134,7 +134,6 @@ public class Character : MonoBehaviour {
             currentItem = item.gameObject;
             currentItemScript = currentItem.GetComponent<Item>();
         }
-
     }
 
     private void OnTriggerExit(Collider item)

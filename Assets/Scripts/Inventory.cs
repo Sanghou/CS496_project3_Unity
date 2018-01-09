@@ -27,6 +27,4 @@ public class Inventory : MonoBehaviour {
         inventory[0] = null;
         items[0].overrideSprite = null;
     }
-
-
 }

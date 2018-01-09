@@ -32,7 +32,6 @@ public class Lever : MonoBehaviour {
     {
         if (Input.GetKey(push))
         {
-            Debug.Log("pushing");
             pushed = true;
             pushEvent.Invoke();
         } else
