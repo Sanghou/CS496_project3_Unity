@@ -5,10 +5,11 @@ TagManager:
   serializedVersion: 2
   tags:
   - Player1
-  - player2
   - item
   - button_sphere
   - button_pushed_by_sphere
+  - Player2
+  - Button_next_map
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - 
   - 
   - Ground
-  - 
+  - Player
   - 
   - 
   - 

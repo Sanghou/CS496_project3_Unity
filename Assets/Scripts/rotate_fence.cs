@@ -30,7 +30,6 @@ public class rotate_fence : MonoBehaviour {
     {
         if (rotated < 110)
         {
-            Debug.Log("110 under");
             rotated += Time.deltaTime * 40;
             transform.Rotate(Vector3.right * Time.deltaTime * 40);
         }

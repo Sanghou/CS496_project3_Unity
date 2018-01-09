@@ -27,6 +27,7 @@ public class Button : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+        anim = GetComponent<Animator>();
 		
 	}
 	
@@ -41,10 +42,16 @@ public class Button : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2" || collision.gameObject.tag == "button_sphere")
+        if(collision.gameObject.tag == "Button_next_map")
         {
+
+        }
+
+        else if(collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2" || collision.gameObject.tag == "button_sphere")
+        {
+            Debug.Log("collision");
             state = ButtonState.pushed;
-            //anim.SetInteger("buttonState", (int)state);
+            anim.SetInteger("buttonState", (int)state);
             collisionEvent.Invoke();
         }
     }
@@ -58,8 +65,9 @@ public class Button : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2")
         {
+            Debug.Log("bye_collision");
             state = ButtonState.notpushed;
             anim.SetInteger("buttonState", (int)state);
             collisionExitEvent.Invoke();
