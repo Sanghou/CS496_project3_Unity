@@ -30,8 +30,10 @@ public class CameraMove : MonoBehaviour {
         transform.position = new Vector3(posX, posY, transform.position.z);
 
         if (bounds){
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
-                transform.position.y, transform.position.z);
+            transform.position = new Vector3(
+                Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
+                Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),
+                transform.position.z);
         }
     }
 }
