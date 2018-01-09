@@ -10,6 +10,8 @@ public class Button : MonoBehaviour {
     public UnityEvent collisionEvent;
     public UnityEvent collisionExitEvent;
 
+    public AudioSource clickAudio;
+
     public enum ButtonState
     {
         pushed = 0,
@@ -32,6 +34,7 @@ public class Button : MonoBehaviour {
     {
         if(collision.gameObject.tag == "Player")
         {
+            clickAudio.Play();
             state = ButtonState.pushed;
             anim.SetInteger("buttonState", (int)state);
             collisionEvent.Invoke();

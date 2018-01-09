@@ -34,6 +34,8 @@ public class Character : MonoBehaviour {
     public Item currentItemScript = null;
     public Inventory inventory;
     public bool isthereItem = false;
+
+    public AudioSource jumpAudio;
     
     void Start() {
         theRB = GetComponent<Rigidbody>();
@@ -64,6 +66,7 @@ public class Character : MonoBehaviour {
 
         if (Input.GetKeyDown(jump) && isGrounded)
         {
+            jumpAudio.Play();
             theRB.velocity = new Vector3(xSpeed, jumpForce, zSpeed);
             jumpKeyDown = true;
         }
