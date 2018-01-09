@@ -122,6 +122,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3781378}
   - component: {fileID: 3781377}
+  - component: {fileID: 3781379}
   m_Layer: 0
   m_Name: FireManager
   m_TagString: Untagged
@@ -148,12 +149,92 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 3781376}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.2, y: 0.46034724, z: 0.8021555}
+  m_LocalPosition: {x: 0.51, y: 0.46034724, z: 4.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &3781379
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 3781376}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: f939b9f60ed65bd48b15d207b190e04b, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    - serializedVersion: 2
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 2
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 0
 --- !u!4 &12971807 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: b48620188f4008546b07ff66c34c65ab, type: 3}
@@ -294,8 +375,8 @@ MeshCollider:
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: 9d0c5de286406214099b96a7fb8d1c69, type: 3}
   m_PrefabInternal: {fileID: 371750642}
---- !u!64 &118906877
-MeshCollider:
+--- !u!65 &118906877
+BoxCollider:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
@@ -303,11 +384,9 @@ MeshCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  serializedVersion: 3
-  m_Convex: 0
-  m_CookingOptions: 14
-  m_SkinWidth: 0.01
-  m_Mesh: {fileID: 4300000, guid: 9d0c5de286406214099b96a7fb8d1c69, type: 3}
+  serializedVersion: 2
+  m_Size: {x: 1, y: 0.71, z: 0.866025}
+  m_Center: {x: -0.5, y: 0.355, z: -0.4330125}
 --- !u!1001 &140683023
 Prefab:
   m_ObjectHideFlags: 0
@@ -817,6 +896,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 29
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 9d0c5de286406214099b96a7fb8d1c69, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 9d0c5de286406214099b96a7fb8d1c69, type: 3}
   m_IsPrefabParent: 0
@@ -1141,6 +1224,38 @@ MonoBehaviour:
   anim: {fileID: 178359207}
   push: 304
   pushed: 0
+  pushEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1010171325}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  popEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1010171325}
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!1 &678821659 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 100000, guid: b48620188f4008546b07ff66c34c65ab, type: 3}
@@ -1645,7 +1760,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 21a041f3cc85e4d4a920da4331d980ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.609575
+      value: -17.74
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 21a041f3cc85e4d4a920da4331d980ce, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1798,6 +1913,10 @@ Prefab:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: 03e6093920d64bb419204a7cba8b857d, type: 3}
   m_PrefabInternal: {fileID: 1883095821}
+--- !u!1 &1010171325 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 100002, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+  m_PrefabInternal: {fileID: 1038075715}
 --- !u!1001 &1014434121
 Prefab:
   m_ObjectHideFlags: 0
@@ -1857,7 +1976,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -3.2
+      value: -2.65
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1865,7 +1984,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.8021555
+      value: 2.42
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1903,6 +2022,34 @@ Prefab:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 2.2559732e-17
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.15658307
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: -90
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 400000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 0.7071068
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
   m_IsPrefabParent: 0
@@ -1937,7 +2084,7 @@ MeshCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Convex: 1
+  m_Convex: 0
   m_CookingOptions: 14
   m_SkinWidth: 0.01
   m_Mesh: {fileID: 4300000, guid: 190215fc5c4ad6c4f9c1dcbf845d9041, type: 3}
@@ -1954,7 +2101,7 @@ Rigidbody:
   m_UseGravity: 0
   m_IsKinematic: 1
   m_Interpolate: 0
-  m_Constraints: 112
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &1038075723
 MonoBehaviour:
@@ -1974,17 +2121,6 @@ MonoBehaviour:
       - m_Target: {fileID: 3781377}
         m_MethodName: BurnWall
         m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 1192637984}
-        m_MethodName: SetActive
-        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2311,10 +2447,6 @@ Transform:
 Transform:
   m_PrefabParentObject: {fileID: 400002, guid: f5cb210c3d9ef3d44b740f889270ad5a, type: 3}
   m_PrefabInternal: {fileID: 1809248074}
---- !u!1 &1192637984 stripped
-GameObject:
-  m_PrefabParentObject: {fileID: 100002, guid: 03e6093920d64bb419204a7cba8b857d, type: 3}
-  m_PrefabInternal: {fileID: 1799797852}
 --- !u!1001 &1202352331
 Prefab:
   m_ObjectHideFlags: 0
@@ -2408,6 +2540,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 27
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 07e446560dc44e541baace5cb250c866, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 07e446560dc44e541baace5cb250c866, type: 3}
   m_IsPrefabParent: 0
@@ -2499,6 +2635,10 @@ Prefab:
     - target: {fileID: 400002, guid: 7028cc1249fcee548a99e287c7b22c41, type: 3}
       propertyPath: m_RootOrder
       value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: 7028cc1249fcee548a99e287c7b22c41, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 7028cc1249fcee548a99e287c7b22c41, type: 3}
@@ -2780,6 +2920,10 @@ Prefab:
       propertyPath: m_RootOrder
       value: 28
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ba7a1193441cf6e4ea78c2ef8a6d52a4, type: 3}
   m_IsPrefabParent: 0
@@ -2943,7 +3087,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1536774109}
   m_LocalRotation: {x: 0.094409816, y: -0, z: -0, w: 0.9955334}
-  m_LocalPosition: {x: -0.27, y: 4.22, z: -7.54}
+  m_LocalPosition: {x: -18.18, y: 4.22, z: -7.54}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -3125,7 +3269,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400002, guid: 21a041f3cc85e4d4a920da4331d980ce, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -17.12
+      value: -17.38
       objectReference: {fileID: 0}
     - target: {fileID: 400002, guid: 21a041f3cc85e4d4a920da4331d980ce, type: 3}
       propertyPath: m_LocalPosition.y
