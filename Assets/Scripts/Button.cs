@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class Button : MonoBehaviour {
 
@@ -42,12 +43,9 @@ public class Button : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Button_next_map")
-        {
+        
 
-        }
-
-        else if(collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2" || collision.gameObject.tag == "button_sphere")
+        if(collision.gameObject.tag == "Player1" || collision.gameObject.tag == "Player2" || collision.gameObject.tag == "button_sphere")
         {
             Debug.Log("collision");
             state = ButtonState.pushed;
@@ -72,5 +70,11 @@ public class Button : MonoBehaviour {
             anim.SetInteger("buttonState", (int)state);
             collisionExitEvent.Invoke();
         }
+    }
+
+    public void next_map()
+    {
+        AsyncOperation async;
+        async = SceneManager.LoadSceneAsync("NatureScene");
     }
 }

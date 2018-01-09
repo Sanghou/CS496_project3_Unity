@@ -4,4 +4,10 @@
 EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
-  m_Scenes: []
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scene_road.unity
+    guid: 1bd83be43432bc841a2f2a4b284cd4c9
+  - enabled: 1
+    path: Assets/NatureScene.unity
+    guid: f37c51cb02ec80549a866836440e3543
