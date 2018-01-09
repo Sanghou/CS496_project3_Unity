@@ -19,6 +19,7 @@ public class Lever : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        //for debug
         pushEvent.Invoke();
     }
 
