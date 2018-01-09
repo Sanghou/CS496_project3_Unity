@@ -8,8 +8,9 @@ public class WoodenItemBox : MonoBehaviour {
     public KeyCode click;
     public int clicked = 0;
 
-    public UnityEvent pushEvent;
-    public UnityEvent popEvent;
+    public GameObject item_key;
+
+    public bool itemExists = true;
 
     // Use this for initialization
     void Start () {
@@ -23,21 +24,33 @@ public class WoodenItemBox : MonoBehaviour {
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(click))
+        if (other.CompareTag("Player"))
         {
-            clicked++;
-            
-        }
-
-        if(clicked > 4)
-        {
-            pushEvent.Invoke();
-            clicked = 0;
+            if (Input.GetKeyDown(click))
+            {
+                clicked++;
+            }
+            if (clicked >= 5)
+            {
+                GameObject player = other.gameObject;
+                if (!player.GetComponent<Character>().isthereItem)
+                {
+                    player.GetComponent<Character>().GetItem(item_key);
+                    clicked = 0;
+                    itemExists = false;
+                } else
+                {
+                    //item exists
+                }
+            }
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        clicked = 0;
+        if (other.CompareTag("Player"))
+        {
+            clicked = 0;
+        }
     }
 }

@@ -122,7 +122,6 @@ public class Character : MonoBehaviour {
             currentItem.SetActive(true);
             inventory.UseItem(currentItem);
             isthereItem = false;
-
         }
     }
 
@@ -145,5 +144,14 @@ public class Character : MonoBehaviour {
                 currentItem = null;
             }
         }
+    }
+
+    public void GetItem(GameObject item)
+    {
+        currentItem = item;
+        currentItemScript = currentItem.GetComponent<Item>();
+        isthereItem = true;
+        currentItem.GetComponent<Key>().Appear();
+        inventory.AddItem(currentItem);
     }
 }
