@@ -30,7 +30,7 @@ public class Button : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" || collision.gameObject.tag == "Untagged")
         {
             state = ButtonState.pushed;
             anim.SetInteger("buttonState", (int)state);
@@ -40,7 +40,7 @@ public class Button : MonoBehaviour {
 
     private void OnCollisionExit(Collision collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player" || collision.gameObject.tag == "Untagged")
         {
             state = ButtonState.notpushed;
             anim.SetInteger("buttonState", (int)state);

@@ -29,6 +29,7 @@ public class Explosion : MonoBehaviour {
 
     void Explode()
     {
+        Debug.Log("IN!");
         //show effect
         Instantiate(ExplosionEffect, transform.position, transform.rotation);
         //get nearby objects
