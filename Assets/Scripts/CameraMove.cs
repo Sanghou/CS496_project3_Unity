@@ -18,7 +18,7 @@ public class CameraMove : MonoBehaviour {
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+ //       player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void FixedUpdate()
