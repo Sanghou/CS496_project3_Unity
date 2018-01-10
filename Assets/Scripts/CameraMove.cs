@@ -18,7 +18,7 @@ public class CameraMove : MonoBehaviour {
 
     void Start()
     {
-        player = GameObject.FindGameObjectWithTag("Player");
+        //player = GameObject.FindGameObjectWithTag("Player");
     }
 
     void FixedUpdate()
@@ -32,8 +32,7 @@ public class CameraMove : MonoBehaviour {
         if (bounds){
             transform.position = new Vector3(
                 Mathf.Clamp(transform.position.x, minCameraPos.x, maxCameraPos.x),
-                Mathf.Clamp(transform.position.y, minCameraPos.y, maxCameraPos.y),
-                transform.position.z);
+                transform.position.y, transform.position.z);
         }
     }
 }
