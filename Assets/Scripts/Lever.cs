@@ -20,26 +20,26 @@ public class Lever : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
         //for debug
-        pushEvent.Invoke();
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        
+        //pushEvent.Invoke();
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKey(push))
+        if (other.CompareTag("Player"))
         {
-            pushed = true;
-            pushEvent.Invoke();
-        } else
-        {
-            pushed = false;
-            popEvent.Invoke();
+            push = other.GetComponent<Character>().pickup;
+            if (Input.GetKey(push))
+            {
+                pushed = true;
+                pushEvent.Invoke();
+            }
+            else
+            {
+                pushed = false;
+                popEvent.Invoke();
+            }
+            anim.SetBool("lever_pushed", pushed);
         }
-        anim.SetBool("lever_pushed", pushed);
     }
 
     private void OnTriggerExit(Collider other)
