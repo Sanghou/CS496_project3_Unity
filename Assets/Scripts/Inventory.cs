@@ -18,7 +18,7 @@ public class Inventory : MonoBehaviour {
         }
         else
         {
-            Debug.Log("inventory1 Full");
+            Debug.Log("inventory Full");
         }
     }
 
