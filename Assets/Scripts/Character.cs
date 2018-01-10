@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Character : MonoBehaviour {
 
@@ -10,6 +8,8 @@ public class Character : MonoBehaviour {
         run,
         jump
     }
+
+    public bool isRight;
 
     public Animator anim;
     public playerState state = playerState.normal;
@@ -34,11 +34,13 @@ public class Character : MonoBehaviour {
     public Item currentItemScript = null;
     public Inventory inventory;
     public bool isthereItem = false;
+
+    public AudioSource jumpAudio;
     
     void Start() {
         theRB = GetComponent<Rigidbody>();
 
-        //whatIsGround = 1 << LayerMask.NameToLayer("Ground");
+        isRight = true;
         state = playerState.normal;
     }
 
@@ -51,8 +53,18 @@ public class Character : MonoBehaviour {
 
         if (Input.GetKey(leftKey)) {
             xSpeed = -moveSpeed;
+            isRight = false;
         } else if (Input.GetKey(rightKey)){
             xSpeed = moveSpeed;
+            isRight = true;
+        }
+
+        if (isRight)
+        {
+            transform.eulerAngles = new Vector3(0, 0, 0);
+        } else
+        {
+            transform.eulerAngles = new Vector3(0, 180, 0);
         }
 
         if (Input.GetKey(frontKey)){
@@ -64,6 +76,7 @@ public class Character : MonoBehaviour {
 
         if (Input.GetKeyDown(jump) && isGrounded)
         {
+            jumpAudio.Play();
             theRB.velocity = new Vector3(xSpeed, jumpForce, zSpeed);
             jumpKeyDown = true;
         }
@@ -105,7 +118,7 @@ public class Character : MonoBehaviour {
         }
         else if (Input.GetKeyDown(pickup) && isthereItem)
         {
-            currentItem.transform.position = GameObject.Find("Player2").transform.position;
+            currentItem.transform.position = transform.position;
             currentItem.SetActive(true);
             inventory.UseItem(currentItem);
             isthereItem = false;
@@ -121,7 +134,6 @@ public class Character : MonoBehaviour {
             currentItem = item.gameObject;
             currentItemScript = currentItem.GetComponent<Item>();
         }
-
     }
 
     private void OnTriggerExit(Collider item)
