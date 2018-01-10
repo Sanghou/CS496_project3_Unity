@@ -342,7 +342,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 56753069}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -18.33, y: 4.95, z: -16.58}
+  m_LocalPosition: {x: -2.65, y: 4.95, z: -16.58}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1259,7 +1259,7 @@ Prefab:
     m_Modifications:
     - target: {fileID: 400006, guid: cefe1fcf816f7bd41a3f12d923406ca3, type: 2}
       propertyPath: m_LocalPosition.x
-      value: 4.53
+      value: 13.7
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: cefe1fcf816f7bd41a3f12d923406ca3, type: 2}
       propertyPath: m_LocalPosition.y
@@ -1267,7 +1267,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: cefe1fcf816f7bd41a3f12d923406ca3, type: 2}
       propertyPath: m_LocalPosition.z
-      value: 12.900623
+      value: 12.9
       objectReference: {fileID: 0}
     - target: {fileID: 400006, guid: cefe1fcf816f7bd41a3f12d923406ca3, type: 2}
       propertyPath: m_LocalRotation.x
@@ -2069,6 +2069,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newposition: {x: 3.03716, y: 0.68124, z: 0}
   newrotation: {x: 0, y: 0, z: -46.586}
+  count: 0
   OpenBox: {fileID: 1141565770}
 --- !u!65 &1141565767
 BoxCollider:
@@ -2360,7 +2361,7 @@ MonoBehaviour:
   inventory: {fileID: 1342267906}
   hasItem: 0
   jumpAudio: {fileID: 1342267907}
-  clickCount: 0
+  clickCount: 1
 --- !u!54 &1342267901
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2489,7 +2490,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ccbf39e75e81c1459d849a14e067487, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3060,7 +3061,7 @@ MonoBehaviour:
   inventory: {fileID: 1571222895}
   hasItem: 0
   jumpAudio: {fileID: 1571222897}
-  clickCount: 0
+  clickCount: 1
 --- !u!65 &1571222891
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -3139,7 +3140,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1571222889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12.41, y: 0.46, z: -0.14}
+  m_LocalPosition: {x: -21.11, y: 6.98, z: -0.14}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 39997100}
@@ -3189,7 +3190,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 7ccbf39e75e81c1459d849a14e067487, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.2
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -3401,6 +3402,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   newposition: {x: 2.5, y: 0.4, z: 0}
   newrotation: {x: 0, y: 0, z: -35.545}
+  count: 0
   OpenBox: {fileID: 1595517158}
 --- !u!1001 &1599032522
 Prefab:
@@ -3512,6 +3514,49 @@ GameObject:
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 11934fcf45ffbe743b10503918a8f223, type: 3}
   m_PrefabInternal: {fileID: 1506257936}
+--- !u!114 &1699795528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699795526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b90b005cef368f46b83d2fa590f2628, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  useEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1699795534}
+        m_MethodName: use
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
+  pickEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1699795534}
+        m_MethodName: pick
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
+      Culture=neutral, PublicKeyToken=null
 --- !u!114 &1699795529
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3676,6 +3721,17 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &1699795534
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1699795526}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3bf83db02425b3b45aaa5475acbf3cf9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1703563545
 GameObject:
   m_ObjectHideFlags: 0
