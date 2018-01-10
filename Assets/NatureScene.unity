@@ -5377,6 +5377,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1632602553}
   - component: {fileID: 1632602554}
+  - component: {fileID: 1632602555}
   m_Layer: 0
   m_Name: Key_Trigger
   m_TagString: KeyLock
@@ -5409,6 +5410,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5995798, y: 1.1227391, z: 1.7464049}
   m_Center: {x: -0.42807245, y: 0.56136954, z: -0.54141223}
+--- !u!114 &1632602555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1632602552}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7beeeb7a4d14ae04f8bdd5a9750db39a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key1: {fileID: 0}
+  key2: {fileID: 0}
+  Cliff: {fileID: 37524303}
 --- !u!1001 &1640091536
 Prefab:
   m_ObjectHideFlags: 0

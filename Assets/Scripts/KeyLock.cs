@@ -5,7 +5,9 @@ using UnityEngine;
 public class KeyLock : MonoBehaviour
 {
 
-    public bool key1, key2;
+    public GameObject key1, key2;
+    public GameObject Cliff;
+
     // Use this for initialization
     void Start()
     {
@@ -22,12 +24,12 @@ public class KeyLock : MonoBehaviour
     {
         if (other.name == "Key1")
         {
-            key1 = true;
+            key1 = other.gameObject;
             Debug.Log("key1");
         }
         else if (other.name == "Key2")
         {
-            key2 = true;
+            key2 = other.gameObject;
             Debug.Log("key2");
         }
     }
@@ -36,20 +38,23 @@ public class KeyLock : MonoBehaviour
     {
         if (other.name == "Key1")
         {
-            key1 = false;
+            key1 = null;
         }
         else if (other.name == "Key2")
         {
-            key2 = false;
+            key2 = null;
         }
     }
 
     public void OnTriggerStay(Collider other)
     {
-        if (key1 && key2)
+        if (key1 != null && key2 != null)
         {
             Debug.Log("Both key");
             //do animation
+            key1.SetActive(false);
+            key2.SetActive(false);
+            Cliff.GetComponent<Animator>().SetBool("Cliff On", true);
         }
     }
 }
