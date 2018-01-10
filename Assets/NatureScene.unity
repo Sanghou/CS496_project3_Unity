@@ -880,8 +880,8 @@ GameObject:
   - component: {fileID: 178113910}
   - component: {fileID: 178113909}
   - component: {fileID: 178113908}
-  - component: {fileID: 178113912}
   - component: {fileID: 178113913}
+  - component: {fileID: 178113914}
   m_Layer: 0
   m_Name: Key2
   m_TagString: Key
@@ -1007,17 +1007,6 @@ Transform:
   m_Father: {fileID: 927441458}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &178113912
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 178113907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4809c3b39672b3478a2d5cef7ddb915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!65 &178113913
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1030,6 +1019,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5620095, y: 1.6274128, z: 1.9593387}
   m_Center: {x: -0.020749087, y: 0.35396862, z: -0.008886335}
+--- !u!54 &178113914
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 178113907}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!1 &178359204 stripped
 GameObject:
   m_PrefabParentObject: {fileID: 1697700714530980, guid: b879135edf4b73043bec395043486fae,
@@ -5375,7 +5379,7 @@ GameObject:
   - component: {fileID: 1632602554}
   m_Layer: 0
   m_Name: Key_Trigger
-  m_TagString: Untagged
+  m_TagString: KeyLock
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -6404,8 +6408,8 @@ GameObject:
   - component: {fileID: 2016194217}
   - component: {fileID: 2016194218}
   - component: {fileID: 2016194220}
-  - component: {fileID: 2016194219}
   - component: {fileID: 2016194221}
+  - component: {fileID: 2016194222}
   m_Layer: 0
   m_Name: Key1
   m_TagString: Key
@@ -6488,17 +6492,6 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
---- !u!114 &2016194219
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 2016194215}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e4809c3b39672b3478a2d5cef7ddb915, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &2016194220
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6554,6 +6547,21 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.5620095, y: 1.6274128, z: 1.9593387}
   m_Center: {x: -0.020749087, y: 0.35396862, z: -0.008886335}
+--- !u!54 &2016194222
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2016194215}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!4 &2041275108 stripped
 Transform:
   m_PrefabParentObject: {fileID: 400000, guid: 6bbd3f1d863051640bdbd4142b20db8e, type: 3}

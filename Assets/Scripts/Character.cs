@@ -153,11 +153,11 @@ public class Character : MonoBehaviour {
     public void UseItem()
     {
         Debug.Log("UseItem");
-        currentItem.transform.position = transform.position;
-        currentItem.GetComponent<Item>().useEvent.Invoke();
-        inventory.UseItem(currentItem);
+        GameObject item = inventory.UseItem();
+
+        item.transform.position = transform.position;
+        item.GetComponent<Item>().useEvent.Invoke();
         hasItem = false;
-        currentItem = null;
     }
 
     public void GetItem(GameObject item)

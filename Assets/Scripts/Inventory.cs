@@ -22,9 +22,11 @@ public class Inventory : MonoBehaviour {
         }
     }
 
-    public void UseItem(GameObject item)
+    public GameObject UseItem()
     {
+        GameObject t = inventory[0];
         inventory[0] = null;
         items[0].overrideSprite = null;
+        return t;
     }
 }

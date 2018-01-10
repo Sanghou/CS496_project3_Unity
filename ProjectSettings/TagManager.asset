@@ -8,6 +8,7 @@ TagManager:
   - player2
   - item
   - Key
+  - KeyLock
   layers:
   - Default
   - TransparentFX

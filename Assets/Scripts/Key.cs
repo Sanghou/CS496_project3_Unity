@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class Key : MonoBehaviour {
 
-    public void UseItem()
-    {
 
+    public void Update()
+    {
+        
     }
 }
