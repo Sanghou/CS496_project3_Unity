@@ -6,14 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/stage2.unity
-    guid: ad1cd82f999f942499cd3dceb1fc7b25
-  - enabled: 1
-    path: Assets/Ending.unity
-    guid: 6f26b12095859d747b303ff962070bae
+    path: Assets/StartScene.unity
+    guid: c3d494e398157ff46ab4c1e2095a6a7c
   - enabled: 1
     path: Assets/Scene_road.unity
     guid: 1bd83be43432bc841a2f2a4b284cd4c9
   - enabled: 1
+    path: Assets/stage2.unity
+    guid: ad1cd82f999f942499cd3dceb1fc7b25
+  - enabled: 1
     path: Assets/NatureScene.unity
     guid: f37c51cb02ec80549a866836440e3543
+  - enabled: 1
+    path: Assets/Ending.unity
+    guid: 6f26b12095859d747b303ff962070bae

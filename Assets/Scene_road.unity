@@ -1437,7 +1437,18 @@ MonoBehaviour:
   anim: {fileID: 416591996}
   collisionEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 416591995}
+        m_MethodName: next_map
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.Events.UnityEvent, UnityEngine.CoreModule, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
   collisionExitEvent:
@@ -2914,6 +2925,7 @@ GameObject:
   - component: {fileID: 830552908}
   - component: {fileID: 830552910}
   - component: {fileID: 830552911}
+  - component: {fileID: 830552912}
   m_Layer: 9
   m_Name: character_2
   m_TagString: Player
@@ -3017,7 +3029,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRight: 0
-  anim: {fileID: 0}
+  anim: {fileID: 830552912}
   state: 0
   moveSpeed: 10
   jumpForce: 8
@@ -3117,6 +3129,23 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!95 &830552912
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 830552905}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 46d402078fcb1be4e8f22381e61c4262, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!1 &844271774
 GameObject:
   m_ObjectHideFlags: 0
