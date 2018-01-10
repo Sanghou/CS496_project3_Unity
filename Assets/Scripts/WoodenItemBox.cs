@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Events;
 
 public class WoodenItemBox : MonoBehaviour {
 
@@ -14,7 +13,7 @@ public class WoodenItemBox : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		
+	    
 	}
 	
 	// Update is called once per frame
@@ -26,6 +25,7 @@ public class WoodenItemBox : MonoBehaviour {
     {
         if (other.CompareTag("Player"))
         {
+            click = other.GetComponent<Character>().pickup;
             if (Input.GetKeyDown(click))
             {
                 clicked++;
@@ -33,7 +33,7 @@ public class WoodenItemBox : MonoBehaviour {
             if (clicked >= 5)
             {
                 GameObject player = other.gameObject;
-                if (!player.GetComponent<Character>().isthereItem)
+                if (!player.GetComponent<Character>().hasItem)
                 {
                     player.GetComponent<Character>().GetItem(item_key);
                     clicked = 0;

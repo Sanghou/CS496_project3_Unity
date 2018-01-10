@@ -31,11 +31,12 @@ public class Character : MonoBehaviour {
     public bool isGrounded;
 
     public GameObject currentItem = null;
-    public Item currentItemScript = null;
     public Inventory inventory;
-    public bool isthereItem = false;
+    public bool hasItem = false;
 
     public AudioSource jumpAudio;
+
+    public int clickCount;
     
     void Start() {
         theRB = GetComponent<Rigidbody>();
@@ -107,21 +108,20 @@ public class Character : MonoBehaviour {
             anim.SetInteger("playerState", (int)state);
         }
 
-        if (Input.GetKeyDown(pickup) && currentItem && !isthereItem)
+        if (Input.GetKeyDown(pickup) && currentItem && !hasItem)
         {
-            if (currentItemScript.inventory)
+            if (clickCount > 1)
             {
-                inventory.AddItem(currentItem);
-                isthereItem = true;
-                currentItem.SendMessage("DoInteraction");
+                clickCount--;
+            }
+            else
+            {
+                GetItem(currentItem);
             }
         }
-        else if (Input.GetKeyDown(pickup) && isthereItem)
+        else if (Input.GetKeyDown(pickup) && hasItem)
         {
-            currentItem.transform.position = transform.position;
-            currentItem.SetActive(true);
-            inventory.UseItem(currentItem);
-            isthereItem = false;
+            UseItem();
         }
     }
 
@@ -131,7 +131,11 @@ public class Character : MonoBehaviour {
         if (item.CompareTag("item"))
         {
             currentItem = item.gameObject;
-            currentItemScript = currentItem.GetComponent<Item>();
+            clickCount = 1;
+        } else if (item.CompareTag("Key"))
+        {
+            currentItem = item.gameObject;
+            clickCount = 5;
         }
     }
 
@@ -146,12 +150,22 @@ public class Character : MonoBehaviour {
         }
     }
 
+    public void UseItem()
+    {
+        Debug.Log("UseItem");
+        currentItem.transform.position = transform.position;
+        currentItem.GetComponent<Item>().useEvent.Invoke();
+        inventory.UseItem(currentItem);
+        hasItem = false;
+        currentItem = null;
+    }
+
     public void GetItem(GameObject item)
     {
         currentItem = item;
-        currentItemScript = currentItem.GetComponent<Item>();
-        isthereItem = true;
-        currentItem.GetComponent<Key>().Appear();
+        Debug.Log("GetItem");
+        hasItem = true;
         inventory.AddItem(currentItem);
+        currentItem.GetComponent<Item>().pickEvent.Invoke();
     }
 }
