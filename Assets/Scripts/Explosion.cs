@@ -12,16 +12,25 @@ public class Explosion : MonoBehaviour {
     float countdown;
     bool hasExploded = false;
 
-	// Use this for initialization
-	void Start () {
+    public AudioSource Boom;
+
+    // Use this for initialization
+    void Start () {
         countdown = delay;
 	}
-	
-	// Update is called once per frame
-	void Update () {
+
+    private void Awake()
+    {
+        Boom = GetComponent<AudioSource>();
+    }
+
+    // Update is called once per frame
+    void Update () {
         countdown -= Time.deltaTime;
         if(countdown <= 0f && !hasExploded)
         {
+
+            
             Explode();
             hasExploded = true;
             Debug.Log("Boom!");
@@ -32,7 +41,9 @@ public class Explosion : MonoBehaviour {
     {
         Debug.Log("IN!");
         //show effect
+        Boom.Play();
         Instantiate(ExplosionEffect, transform.position, transform.rotation);
+        
         //get nearby objects
         Collider[] colliders = Physics.OverlapSphere(transform.position,radius);
         foreach(Collider nearbyObject in colliders)
@@ -57,7 +68,8 @@ public class Explosion : MonoBehaviour {
             }
             
         }
+        
         //remove bomb
-        Destroy(gameObject);
+        Destroy(gameObject,Boom.clip.length);
     }
 }

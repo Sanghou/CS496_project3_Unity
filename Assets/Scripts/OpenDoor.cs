@@ -12,8 +12,10 @@ public class OpenDoor : MonoBehaviour {
     bool timeOn = false;
     int count = 50;
 
-	// Use this for initialization
-	void Start () {
+    public AudioSource openDoor;
+
+    // Use this for initialization
+    void Start () {
         timeLeft = 5f;
 	}
 	
@@ -36,6 +38,7 @@ public class OpenDoor : MonoBehaviour {
     {
         //Debug.Log(door.transform.position);
         timeOn = true;
+        openDoor.Play();
         door.transform.position += openlittle;
         timeLeft = 3f;
     }
